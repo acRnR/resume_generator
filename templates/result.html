@@ -9,8 +9,12 @@
     <img src="{{ photo }}">
 </div>
 {% for el in info %}
-el[0]
+    {% if 'htt' in el%}
+    <p><a href="{{ el }}">{{ el }}</a> </p>
+    {% else %}
+    <p>{{  el }}</p>
+    {% endif %}
 {% endfor %}
 </body>
 </html>
-<a href=""></a>
+<a href="/">Назад</a>
