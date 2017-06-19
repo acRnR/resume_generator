@@ -31,8 +31,7 @@ def clean_info(result):
         u_info['site'] = result['site']
     if 'city' in u_info:
         u_info['city'] = result['city']['title']
-    if 'career' in result and len(result['career']) >= 2:# and 'company' in result['career'][0]:
-        #print(len(result['career']))
+    if 'career' in result and len(result['career']) >= 2:
         for el in ['company', 'position']:
             if el in result['career'][1]:
                 u_info[el] = result['career'][1][el]
@@ -56,18 +55,17 @@ def clean_info(result):
             u_info[item] = result[item]
     if 'mobile_phone' in result:
         u_info['phone'] = result['mobile_phone']
-    print(result)
+
 
 @app.route('/')
 def index():
     u_info.clear()
     sess['hidden'] = 0
     if request.args:
-        print('one')
         info = request.args['answer']
-        print('two')
+        if '/' in info:
+            info = info.replace('https://vk.com/', '')
         collect_info(info)
-        print('three')
         return redirect(url_for('result'))
     return render_template('index.html')
 
