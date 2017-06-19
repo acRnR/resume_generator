@@ -17,6 +17,9 @@
         {% if 'site' in info %}
         <li>Cайт: <a href="{{ info['site'] }}">{{ info['site'] }}</a></li>
         {% endif %}
+        {% if 'phone' in info %}
+        <li>Моб. телефон: {{ info['phone'] }}</li>
+        {% endif %}
         {% if 'company' in info %}
         <li>Карьера: {{ info['company'] }}<!--/li-->
             {% if 'position' in info %}
@@ -37,6 +40,9 @@
             <br> Год выпуска: {{ info['graduation'] }}
             {% endif %}
         </li>
+        {% endif %}
+        {% if 'langs' in info %}
+        <li>Иностранные языки: {{ info['langs'] }}</li>
         {% endif %}
     </ul>
 </div>
