@@ -6,13 +6,23 @@
 </head>
 <body>
 <div class="avatar">
-    <img src="{{ photo }}">
+    <img src="{{ info['photo'] }}">
+    <h1>{{ info['name'] }}</h1>
+</div>
+<div class="userinfo">
+    <ul>
+        {% if 'site' in info %}
+        <li>Cайт: <a href="{{ info['site'] }}">{{ info['site'] }}</a></li>
+        {% endif %}
+        {% if 'career' in info %}
+        <li>Карьера: {{ info['career'] }}</li>
+    </ul>
 </div>
 {% for el in info %}
     {% if 'htt' in el%}
     <p><a href="{{ el }}">{{ el }}</a> </p>
     {% else %}
-    <p>{{  el }}</p>
+    <p>{{  el }}: {{ info[el] }}</p>
     {% endif %}
 {% endfor %}
 </body>

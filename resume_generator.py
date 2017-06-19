@@ -4,7 +4,7 @@ import requests
 import json
 
 app = Flask(__name__)
-u_info = []
+u_info = {}
 sess = {}
 
 
@@ -25,15 +25,17 @@ def collect_info(u_id):
 
 def clean_info(result):
     if 'photo_200' in result:
-        u_info.append(result['photo_200'])
-    u_info.append(result['first_name'] + ' ' + result['last_name'])
+        u_info['photo'] = result['photo_200']
+    u_info['name'] = result['first_name'] + ' ' + result['last_name']
     if 'site' in result and result['site'] != '':
-        u_info.append(result['site'])
+        u_info['site'] = result['site']
     if 'city' in u_info:
-        u_info.append(result['city']['title'])
+        u_info['city'] = result['city']['title']
     if 'career' in result and len(result['career']) >= 2:# and 'company' in result['career'][0]:
         #print(len(result['career']))
-        u_info.append(result['career'][1]['company'])
+        for el in ['company', 'position', 'from', 'to']:
+            if el in result['career'][1]:
+                u_info[el] = result['career'][1][el]
     #if
     print(u_info)
 
@@ -54,9 +56,8 @@ def index():
 @app.route('/result')
 def result():
     if sess['hidden'] != 1:
-        photo = u_info[0]
-        kek = u_info[1:]
-        return render_template('result.html', photo=photo, info=kek)
+        kek = u_info
+        return render_template('result.html', info=kek)
     else:
         return render_template('access_error.html')
 
