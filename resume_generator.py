@@ -31,12 +31,15 @@ def clean_info(result):
         u_info.append(result['site'])
     if 'city' in u_info:
         u_info.append(result['city']['title'])
-    if 'career' in result and 'company' in result['career'][0]:
-        u_info.append(result['career'][0]['company'])
+    if 'career' in result and len(result['career']) >= 2:# and 'company' in result['career'][0]:
+        #print(len(result['career']))
+        u_info.append(result['career'][1]['company'])
+    #if
     print(u_info)
 
 @app.route('/')
 def index():
+    u_info.clear()
     sess['hidden'] = 0
     if request.args:
         print('one')
@@ -64,4 +67,3 @@ def access_error():
 
 if __name__ == '__main__':
     app.run(debug=True)
-    #collect_info()
