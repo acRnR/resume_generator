@@ -11,20 +11,35 @@
 </div>
 <div class="userinfo">
     <ul>
+        {% if 'bdate' in info %}
+        <li>Дата рождения: {{ info['bdate'] }}</li>
+        {% endif %}
         {% if 'site' in info %}
         <li>Cайт: <a href="{{ info['site'] }}">{{ info['site'] }}</a></li>
         {% endif %}
-        {% if 'career' in info %}
-        <li>Карьера: {{ info['career'] }}</li>
+        {% if 'company' in info %}
+        <li>Карьера: {{ info['company'] }}<!--/li-->
+            {% if 'position' in info %}
+                <br>Должность: {{ info['position'] }}
+            {% endif %}
+            {% if 'date' in info %}
+        <br> {{ info['date'] }}
+            {% endif %}
+        </li>
+        {% endif %}
+        {% if 'uni_name' in info %}
+        <li>
+            Образование: {{ info['uni_name'] }}
+            {% if 'fac_name' in info %}
+            <br> Факультет: {{ info['fac_name'] }}
+            {% endif %}
+            {% if 'graduation' in info %}
+            <br> Год выпуска: {{ info['graduation'] }}
+            {% endif %}
+        </li>
+        {% endif %}
     </ul>
 </div>
-{% for el in info %}
-    {% if 'htt' in el%}
-    <p><a href="{{ el }}">{{ el }}</a> </p>
-    {% else %}
-    <p>{{  el }}: {{ info[el] }}</p>
-    {% endif %}
-{% endfor %}
 </body>
 </html>
 <a href="/">Назад</a>
