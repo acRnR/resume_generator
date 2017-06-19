@@ -7,45 +7,46 @@
 </head>
 <body>
 <div class="avatar">
-    <img src="{{ info['photo'] }}">
     <h1>{{ info['name'] }}</h1>
+    <img src="{{ info['photo'] }}">
 </div>
 <div class="userinfo">
-    <ul>
+    <table>
+    <tbody>
         {% if 'bdate' in info %}
-        <li>Дата рождения: {{ info['bdate'] }}</li>
+            <tr><th>Дата рождения:</th><td>{{ info['bdate'] }}</td></tr>
         {% endif %}
         {% if 'site' in info %}
-        <li>Cайт: <a href="{{ info['site'] }}">{{ info['site'] }}</a></li>
+           <tr><th>Cайт:</th> <td><a href="{{ info['site'] }}">{{ info['site'] }}</a></td></tr>
         {% endif %}
         {% if 'phone' in info %}
-        <li>Моб. телефон: {{ info['phone'] }}</li>
+            <tr><th>Моб. телефон:</th><td> {{ info['phone'] }}</td></tr>
         {% endif %}
         {% if 'company' in info %}
-        <li>Карьера: {{ info['company'] }}<!--/li-->
+            <tr><th>Карьера:</th> <td>{{ info['company'] }}</td></tr>
             {% if 'position' in info %}
-                <br>Должность: {{ info['position'] }}
+                <tr><th>Должность:</th> <td>{{ info['position'] }}</td></tr>
             {% endif %}
             {% if 'date' in info %}
-        <br> {{ info['date'] }}
+                <tr> <td colspan="2"> {{ info['date'] }}</td></tr>
             {% endif %}
-        </li>
+
         {% endif %}
         {% if 'uni_name' in info %}
-        <li>
-            Образование: {{ info['uni_name'] }}
+            <tr><th>Образование:</th> <td>{{ info['uni_name'] }}</td></tr>
             {% if 'fac_name' in info %}
-            <br> Факультет: {{ info['fac_name'] }}
+                <tr><th>Факультет:</th><td>{{ info['fac_name'] }}</td></tr>
             {% endif %}
             {% if 'graduation' in info %}
-            <br> Год выпуска: {{ info['graduation'] }}
+                <tr><th>Год выпуска:</th><td>{{ info['graduation'] }}</td></tr>
             {% endif %}
-        </li>
+
         {% endif %}
         {% if 'langs' in info %}
-        <li>Иностранные языки: {{ info['langs'] }}</li>
+            <tr><th>Иностранные языки:</th><td>{{ info['langs'] }}</td></tr>
         {% endif %}
-    </ul>
+    </tbody>
+    </table>
 </div>
 </body>
 </html>
