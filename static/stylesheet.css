@@ -3,8 +3,8 @@
 /* {
   background-color: burlywood;
 }*/
-.body {
-  background-color: rgba(63,59,183,0.62);
+body {
+  background-color: midnightblue;
 }
 
 table {
@@ -25,7 +25,7 @@ th {
   background: snow;
   border-right: 1px solid #93CFC1;
   border-left: 1px solid #93CFC1;
-  color: darkgoldenrod;
+  color: midnightblue;
   padding: 8px;
   border-bottom: 1px dashed #93CFC1;
 }
@@ -54,7 +54,7 @@ h1, h2, h3 {
 }
 
 .alert {
-    background-color: darkgoldenrod;
+    background-color: midnightblue;
     margin:0 auto;
     max-width:95%;
     box-sizing:border-box;
@@ -94,8 +94,8 @@ input{
 .message:focus,
 input:focus{
   outline:none;
-   border: darkgoldenrod 2px solid;
-   color: darkgoldenrod;
+   border: midnightblue 2px solid;
+   color: midnightblue;
 }
 /* Стили текстового поля */
 .message{

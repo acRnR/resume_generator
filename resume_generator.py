@@ -61,22 +61,30 @@ def clean_info(result):
 def index():
     u_info.clear()
     sess['hidden'] = 0
-    if request.args:
-        info = request.args['answer']
-        if '/' in info:
-            info = info.replace('https://vk.com/', '')
-        collect_info(info)
+    try:
+        if request.args:
+            info = request.args['answer']
+            if '/' in info:
+                info = info.replace('https://vk.com/', '')
+            collect_info(info)
+            return redirect(url_for('result'))
+        return render_template('index.html')
+    except:
+        sess['hidden'] = 2
         return redirect(url_for('result'))
-    return render_template('index.html')
 
 
 @app.route('/result')
 def result():
-    if sess['hidden'] != 1:
+    if sess['hidden'] == 0:
         kek = u_info
         return render_template('result.html', info=kek)
+    elif sess['hidden'] == 1:
+        message = 'К сожалению, у нас нет доступа к странице этого пользователя'
+        return render_template('access_error.html', message=message)
     else:
-        return render_template('access_error.html')
+        message = 'Ууупс... Кажется, вы ввели что-то странное, попробуйте ещё раз'
+        return render_template('access_error.html', message=message)
 
 
 if __name__ == '__main__':
