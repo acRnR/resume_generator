@@ -7,11 +7,11 @@
 </head>
 <body>
 <div class="avatar">
-    <h1>{{ info['name'] }}</h1>
-    <img src="{{ info['photo'] }}">
+    <h1 align="center">{{ info['name'] }}</h1>
+    <img src="{{ info['photo'] }}" align="center">
 </div>
 <div class="userinfo">
-    <table>
+    <table align="center">
     <tbody>
         {% if 'bdate' in info %}
             <tr><th>Дата рождения:</th><td>{{ info['bdate'] }}</td></tr>
@@ -48,6 +48,8 @@
     </tbody>
     </table>
 </div>
+<div class="button">
+    <a href="/">Назад</a>
+</div>
 </body>
 </html>
-<a href="/">Назад</a>

@@ -1,11 +1,40 @@
 @import url('https://fonts.googleapis.com/css?family=Ubuntu+Condensed');
 
-/* {
-  background-color: burlywood;
-}*/
 body {
   background-color: midnightblue;
 }
+
+.button a {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	margin: 15px;
+	padding: 0 15px;
+	text-decoration: none;
+    background: #93CFC1;
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#93CFC1), to(#81e8eb));
+    background: -moz-linear-gradient(#93CFC1, #81e8eb);
+    background: linear-gradient(#93CFC1, #81e8eb);
+    border: solid 1px #87d3d5;
+    border-bottom: solid 3px #4fa7aa;
+    box-shadow: inset 0 0 0 1px #d4f8f8;
+    color: snow;
+    text-shadow: 0 1px 0 #93CFC1; }
+
+.button a:hover {
+    background: #8deaed;
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#8deaed), to(#9fedf0));
+    background: -moz-linear-gradient(#8deaed, #9fedf0);
+    background: linear-gradient(#8deaed, #9fedf0);
+    border: solid 1px #79c5c7;
+    border-bottom: solid 3px #4fa7aa;
+    box-shadow: inset 0 0 0 1px #b9f2f5; }
+
+.button a:active {
+    background: #84e4e7;
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#84e4e7), to(#80dcdf));
+    background: -moz-linear-gradient(#84e4e7, #80dcdf);
+    background: linear-gradient(#84e4e7, #80dcdf);
+    border: solid 1px #58999b;
+    box-shadow: inset 0 10px 15px 0 #75c9cc; }
 
 table {
   font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
@@ -26,7 +55,7 @@ th {
   border-right: 1px solid #93CFC1;
   border-left: 1px solid #93CFC1;
   color: midnightblue;
-  padding: 8px;
+  padding: 3px;
   border-bottom: 1px dashed #93CFC1;
 }
 td {
@@ -34,7 +63,7 @@ td {
   border-right: 1px solid #93CFC1;
   border-left: 1px solid #93CFC1;
   color: black;
-  padding: 8px;
+  padding: 3px;
   border-bottom: 1px dashed #93CFC1;
 }
 
@@ -51,19 +80,6 @@ h1, h2, h3 {
   color: #9DCFCE;
   font-family: 'Ubuntu Condensed', sans-serif;
   text-transform: uppercase;
-}
-
-.alert {
-    background-color: midnightblue;
-    margin:0 auto;
-    max-width:95%;
-    box-sizing:border-box;
-    padding:40px;
-    border-radius:5px;
-    -webkit-box-shadow:  0 0 15px 0 rgba(0, 0, 0, .45);
-    box-shadow:  0 0 15px 0 rgba(0, 0, 0, .45);
-    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-    color: snow;
 }
 
 /* Базовые стили формы */
@@ -115,9 +131,6 @@ input:focus{
     overflow:hidden;
 }
 
-#vkb {
-    font-size: 20px;
-}
 
 form table td {
     border: 1px solid white;
